@@ -6,7 +6,11 @@ import { useSidebar } from "@/store/use-sidebar";
 import { UserItem, UserItemSkeleton } from "./user-item";
 
 interface RecommendedProps {
-	data: User[];
+	data: (User & {
+		stream: {
+			isLive: boolean;
+		} | null;
+	})[];
 }
 
 export const Recommended = ({ data }: RecommendedProps) => {
@@ -24,7 +28,12 @@ export const Recommended = ({ data }: RecommendedProps) => {
 
 			<ul className="space-y-2 px-2">
 				{data?.map((el) => (
-					<UserItem key={el.id} username={el.username} imageUrl={el.imageUrl} isLive={true} />
+					<UserItem
+						key={el.id}
+						username={el.username}
+						imageUrl={el.imageUrl}
+						isLive={el.stream?.isLive}
+					/>
 				))}
 			</ul>
 		</div>
