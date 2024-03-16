@@ -4,7 +4,6 @@ import { isFollowingUser } from "@/lib/follow-service";
 import { getUserByUsername } from "@/lib/user-service";
 import { isBlockedByUser } from "@/lib/block-service";
 
-import { Actions } from "./actions";
 import { StreamPlayer } from "@/components/stream-player";
 
 interface UserPageProps {
